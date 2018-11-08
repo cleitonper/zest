@@ -1,0 +1,27 @@
+extends /email/layout/default
+
+block content
+  p
+    strong Hi #{ name },
+
+  p
+    | We've recived a request to reset your password.
+    | If you don't make this request just ignore this email.
+    | Otherwise, you can reset your password using the link below.
+    |
+    strong This password reset can only be used once and is valid for #{ resetPassTTL }.
+
+  a(class="call-to-action" href="#{ changePassLink }")
+    | Click here to reset your password.
+
+  p
+    | Thanks,
+    br
+    strong Zest API
+
+block footnote
+  p
+    | If you’re having trouble with the button above,
+    | copy and paste the URL below into your web browser.
+
+  p(class="break-word") #{ changePassLink }

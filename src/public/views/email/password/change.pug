@@ -1,0 +1,17 @@
+extends /email/layout/default
+
+block content
+  form(class="form-block", method="post" action="#{ resetPassLink }")
+    div(class="form-group")
+      label(for="password")
+        | Enter new password
+      input(type="password" name="password" id="password" placeholder="Type new password here" required="required" minlength="6")
+    button(class="call-to-action", type="submit")
+      | Change my password
+
+block footnote
+  | In order to reset your password you need to create a new one.
+  br
+  | Type the new password in the field above and click in #[strong Change my password] button.
+  br
+  strong The new password must contain at least 6 characters.

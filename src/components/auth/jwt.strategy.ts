@@ -6,6 +6,7 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 
 import { AuthService }     from './auth.service';
 import { UserCredentials } from './types';
+import { User } from 'components/user/types';
 
 dotenv.config();
 
@@ -18,7 +19,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(credentials: UserCredentials): Promise<boolean> {
+  async validate(credentials: UserCredentials): Promise<User> {
     return await this.authService.validate(credentials);
   }
 }

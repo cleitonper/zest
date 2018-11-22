@@ -8,12 +8,13 @@ UseGuards,
 import { Projection, Pagination, Filter } from '../../decorators';
 
 import { FindUserDTO, User, CreateUserDTO } from './types';
-import { UserService } from './user.service';
-import { JwtGuard }    from '../auth/jwt.guard';
+import { UserService }     from './user.service';
+import { JwtGuard }        from '../auth/jwt.guard';
+import { PermissionGuard } from '../auth/permission.guard';
 
 const USER_FILTERS = ['_id', 'name', 'email'];
 
-@UseGuards(JwtGuard)
+@UseGuards(JwtGuard, PermissionGuard)
 @Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}

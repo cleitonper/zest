@@ -3,6 +3,7 @@ import { JwtService } from '@nestjs/jwt';
 
 import { Token, UserCredentials } from './types';
 import { UserService } from '../user/user.service';
+import { User } from '../user/types';
 
 @Injectable()
 export class AuthService {
@@ -25,9 +26,9 @@ export class AuthService {
     return { token };
   }
 
-  async validate({ email }: Partial<UserCredentials>): Promise<boolean> {
+  async validate({ email }: Partial<UserCredentials>): Promise<User> {
     const user = await this.userService.getByEmail(email);
     if (!user) throw new UnauthorizedException('The provided credentials has been deleted');
-    return true;
+    return user;
   }
 }

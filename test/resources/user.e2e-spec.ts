@@ -42,14 +42,16 @@ describe('Controller: User (e2e)', () => {
   });
 
   it('/users (GET)', async () => {
-    const expected = model.find();
+    const users = model.find();
+    const expected = JSON.parse(JSON.stringify(users));
     const response: Response = await request.private().get('/users');
     expect(response.status).toBe(200);
     expect(response.body).toEqual(expected);
   });
 
   it('/users/:id (GET)', async () => {
-    const expected = model.findOne();
+    const user = model.findOne();
+    const expected = JSON.parse(JSON.stringify(user));
     const response: Response = await request.private().get('/users/randonid');
     expect(response.status).toEqual(200);
     expect(response.body).toEqual(expected);
@@ -57,7 +59,8 @@ describe('Controller: User (e2e)', () => {
 
   it('/users/:id (PUT)', async () => {
     const update = { name: 'Jaspion' };
-    const expected = model.findOneAndUpdate({}, update);
+    const updatedUser = model.findOneAndUpdate({}, update);
+    const expected = JSON.parse(JSON.stringify(updatedUser));
     const response: Response = await request.private().put('/users/randomid').send(update);
     expect(response.status).toBe(200);
     expect(response.body).toMatchObject(update);

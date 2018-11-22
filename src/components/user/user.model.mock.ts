@@ -7,9 +7,23 @@ import { User, UserMongoose } from './types';
  * Note that verifyPassword() method always check
  * if the password param is equal to a 'secret' string.
  */
-const users = [
-  { name: 'Lorem', email: 'lorem@email.com', password: 'secret' } as User,
-  { name: 'Ipsum', email: 'ipsum@email.com', password: 'secret' } as User,
+const users: User[] = [
+  {
+    name: 'Lorem',
+    email: 'lorem@email.com',
+    password: 'secret',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    permissions: { users: ['read', 'write', 'delete'] },
+  },
+  {
+    name: 'Ipsum',
+    email: 'ipsum@email.com',
+    password: 'secret',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    permissions: { users: ['read', 'write', 'delete'] },
+  },
 ];
 
 const usersObject = users.map((user): UserMongoose => {

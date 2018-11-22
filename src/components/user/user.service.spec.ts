@@ -45,7 +45,7 @@ describe('Service: User', () => {
 
   it('update: should update a user', async () => {
     const update = { name: 'Amet' };
-    const expected = model.findOneAndUpdate(update);
+    const expected = model.findOneAndUpdate({}, update);
     const updatedUser = await service.update('randomid', update);
     expect(updatedUser).toEqual(expected);
     expect(updatedUser.name).toEqual(update.name);

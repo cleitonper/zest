@@ -1,12 +1,20 @@
-import { Controller, Get, Post, Put, Delete, Query, Param, Body, HttpCode } from '@nestjs/common';
+import {
+Controller,
+Get, Post, Put, Delete,
+Query, Param, Body, HttpCode,
+UseGuards,
+} from '@nestjs/common';
 
-import { Projection, Pagination, Filter }   from '../../decorators';
+import { Projection, Pagination, Filter } from '../../decorators';
+
 import { FindUserDTO, User, CreateUserDTO } from './types';
-import { UserService } from './user.service';
-import { MailerProvider } from '@nest-modules/mailer';
+import { UserService }     from './user.service';
+import { JwtGuard }        from '../auth/jwt.guard';
+import { PermissionGuard } from '../auth/permission.guard';
 
 const USER_FILTERS = ['_id', 'name', 'email'];
 
+@UseGuards(JwtGuard, PermissionGuard)
 @Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}

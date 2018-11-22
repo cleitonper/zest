@@ -1,3 +1,4 @@
+import { UserPermissions } from '.';
 
 export class User {
   name: string;
@@ -5,7 +6,5 @@ export class User {
   password: string;
   createdAt: Date;
   updatedAt: Date;
-  permissions: {
-    [resourceName: string]: Array<'read' | 'write' | 'delete'>;
-  };
+  permissions: UserPermissions;
 }

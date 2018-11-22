@@ -36,7 +36,7 @@ describe('Controller: User', () => {
 
   it('list: should return a users list', async () => {
     const expected = await service.list();
-    const usersList = await controller.list({} as FindUserDTO, {}, {}, {});
+    const usersList = await controller.list({} as FindUserDTO, {}, {}, { lean: true });
     expect(usersList).toEqual(expected);
   });
 

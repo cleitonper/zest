@@ -1,13 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getModelToken }       from '@nestjs/mongoose';
+import { JwtModule }           from '@nestjs/jwt';
 
 import { UserModule }     from '../user/user.module';
 import { AuthController } from './auth.controller';
 import { UserModelMock }  from '../user/user.model.mock';
-import { UserService } from '../user/user.service';
-import { JwtStrategy }    from './jwt.strategy';
-import { AuthService } from './auth.service';
-import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy }    from '../../shared/strategies';
+import { AuthService }    from './auth.service';
 
 describe('Controller: Auth', () => {
   let module: TestingModule;

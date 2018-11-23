@@ -1,7 +1,7 @@
 import { Module }       from '@nestjs/common';
 import { ConfigModule } from 'nestjs-config';
 
-import { DatabaseModule, MailerModule } from './services';
+import { DatabaseModule, MailerModule } from './shared/services';
 
 import { AppController } from './app.controller';
 import { AppService }    from './app.service';

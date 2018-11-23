@@ -83,6 +83,20 @@
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "collectCoverage": false,
+    "coverageDirectory": "../coverage/",
+    "collectCoverageFrom": [
+      "<rootDir>/**/*.ts"
+  ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/shared",
+      "<rootDir>/config",
+      "/types",
+      "main.ts",
+      "main.hmr.ts",
+      ".module.ts",
+      ".schema.ts",
+      ".mock.ts"
+    ],
     "testEnvironment": "node"
   },
   "lint-staged": {

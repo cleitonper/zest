@@ -5,12 +5,11 @@ Query, Param, Body, HttpCode,
 UseGuards,
 } from '@nestjs/common';
 
-import { Projection, Pagination, Filter } from '../../decorators';
+import { Projection, Pagination, Filter } from '../../shared/decorators';
+import { JwtGuard, PermissionGuard }      from '../../shared/guards';
 
 import { FindUserDTO, User, CreateUserDTO } from './types';
-import { UserService }     from './user.service';
-import { JwtGuard }        from '../auth/jwt.guard';
-import { PermissionGuard } from '../auth/permission.guard';
+import { UserService } from './user.service';
 
 const USER_FILTERS = ['_id', 'name', 'email'];
 

@@ -36,21 +36,26 @@ const usersObject = users.map((user): UserMongoose => {
 });
 
 export class UserModelMock {
-  create(user: Partial<User>): User {
+  create(user?: Partial<User>): User {
+    if (!user) throw { name: 'ValidationError', errors: [] };
     return user as User;
   }
 
-  find(conditions = {}, projection = {}, options = { lean: true }): Array<User | UserMongoose> {
+  find(conditions: any = {}, projection: any = {}, options: any = { lean: true }): Array<User | UserMongoose> {
+    if (conditions._id === 'null') return [];
     if (options.lean) return users;
     return usersObject;
   }
 
-  findOne(conditions = {}, projection = {}, options = { lean: true }): User | UserMongoose {
+  findOne(conditions: any = {}, projection: any = {}, options: any = { lean: true }): User | UserMongoose {
+    if (conditions._id === 'null') return null;
     if (options.lean) return users[0];
     return usersObject[0];
   }
 
-  findOneAndUpdate(conditions = {}, update: Partial<User>, options = { lean: true }): User {
+  findOneAndUpdate(conditions: any = {}, update: Partial<User>, options: any = { lean: true }): User {
+    if (conditions._id === 'null') return null;
+
     const userToUpdate = users[0];
 
     const updatedUser = Object.keys(update).reduce((user, propertyToUpdate) => {
@@ -61,7 +66,8 @@ export class UserModelMock {
     return updatedUser;
   }
 
-  findOneAndDelete(conditions = {}, options = { lean: true }): User {
+  findOneAndDelete(conditions: any = {}, options: any = { lean: true }): User {
+    if (conditions._id === 'null') return null;
     return users[0];
   }
 }

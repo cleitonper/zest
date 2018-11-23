@@ -4,6 +4,7 @@ import { getModelToken }       from '@nestjs/mongoose';
 import { User }          from './types';
 import { UserModelMock } from './user.model.mock';
 import { UserService }   from './user.service';
+import { BadRequestException, NotFoundException } from '@nestjs/common';
 
 describe('Service: User', () => {
   let service: UserService;
@@ -27,8 +28,13 @@ describe('Service: User', () => {
 
   it('create: should create a user', async () => {
     const data: Partial<User> = { name: 'Amet', email: 'amet@email.com', password: 'secret' };
-    const user: User = await model.create(data);
-    expect(user).toMatchObject(data);
+    const expected: User = await model.create(data);
+    const user: User = await service.create(data);
+    expect(user).toMatchObject(expected);
+  });
+
+  it('create: should return a BadRequestException when recive an invalid or null field', () => {
+    expect(service.create(null)).rejects.toThrowError(BadRequestException);
   });
 
   it('list: should return a users list', async () => {
@@ -37,10 +43,18 @@ describe('Service: User', () => {
     expect(usersList).toEqual(expected);
   });
 
+  it('list: should return a NotFoundException when no user be found', () => {
+    expect(service.list({ _id: 'null' })).rejects.toThrowError(NotFoundException);
+  });
+
   it('get: should return a user', async () => {
     const expected = model.findOne();
     const user = await service.get('randomid');
     expect(user).toEqual(expected);
+  });
+
+  it('get: should return a NotFoundExceptions when the requested user is not found', () => {
+    expect(service.get('null')).rejects.toThrowError(NotFoundException);
   });
 
   it('update: should update a user', async () => {
@@ -51,8 +65,16 @@ describe('Service: User', () => {
     expect(updatedUser.name).toEqual(update.name);
   });
 
+  it('update: should return a NotFoundExceptions when the requested user is not found', () => {
+    expect(service.update('null', {})).rejects.toThrowError(NotFoundException);
+  });
+
   it('delete: should delete a user', async () => {
     const isUserDeleted = await service.delete('randomid');
     expect(isUserDeleted).toBe(true);
+  });
+
+  it('delete: should return a NotFoundExceptions when the requested user is not found', () => {
+    expect(service.delete('null')).rejects.toThrowError(NotFoundException);
   });
 });

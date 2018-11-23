@@ -12,7 +12,7 @@ export class UserService {
     try {
       return await this.user.create(data);
     } catch (error) {
-      if (error.name === 'ValidationError') throw new BadRequestException(error.errors, 'Validation error');
+      throw new BadRequestException(error.errors, 'Validation error');
     }
   }
 

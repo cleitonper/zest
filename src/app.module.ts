@@ -7,6 +7,7 @@ import { AppController } from './app.controller';
 import { AppService }    from './app.service';
 import { UserModule }    from './components/user/user.module';
 import { AuthModule }    from './components/auth/auth.module';
+import { PasswordModule } from './components/password/password.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { AuthModule }    from './components/auth/auth.module';
     DatabaseModule,
     UserModule,
     AuthModule,
+    PasswordModule,
   ],
   controllers: [ AppController ],
   providers: [ AppService ],

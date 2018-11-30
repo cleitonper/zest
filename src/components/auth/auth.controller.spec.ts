@@ -4,9 +4,9 @@ import { JwtModule }           from '@nestjs/jwt';
 
 import { UserModule }     from '../user/user.module';
 import { AuthController } from './auth.controller';
-import { UserModelMock }  from '../user/user.model.mock';
-import { JwtStrategy }    from '../../shared/strategies';
 import { AuthService }    from './auth.service';
+import { UserModelMock }  from '../../shared/mocks';
+import { JwtStrategy }    from '../../shared/strategies';
 
 describe('Controller: Auth', () => {
   let module: TestingModule;

@@ -6,7 +6,7 @@ import { JwtService, JwtModule } from '@nestjs/jwt';
 import { Request, Response } from '../util/request';
 
 import { AppModule }     from '../../src/app.module';
-import { UserModelMock } from '../../src/components/user/user.model.mock';
+import { UserModelMock } from '../../src/shared/mocks';
 
 describe('Controller: Auth (e2e)', () => {
   let app: INestApplication;

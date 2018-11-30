@@ -1,4 +1,4 @@
-import { User, UserMongoose } from './types';
+import { User, UserMongoose } from '../../components/user/types';
 
 /**
  * This array will be used as fake response
@@ -9,6 +9,7 @@ import { User, UserMongoose } from './types';
  */
 const users: User[] = [
   {
+    _id: 'fb3j7h',
     name: 'Lorem',
     email: 'lorem@email.com',
     password: 'secret',
@@ -17,6 +18,7 @@ const users: User[] = [
     permissions: { users: ['read', 'write', 'delete'] },
   },
   {
+    _id: 'c43bh8',
     name: 'Ipsum',
     email: 'ipsum@email.com',
     password: 'secret',

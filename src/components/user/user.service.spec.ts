@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getModelToken }       from '@nestjs/mongoose';
 
 import { User }          from './types';
-import { UserModelMock } from './user.model.mock';
+import { UserModelMock } from '../../shared/mocks';
 import { UserService }   from './user.service';
 import { BadRequestException, NotFoundException } from '@nestjs/common';
 

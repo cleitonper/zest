@@ -138,7 +138,12 @@ hr {
   width: 100%;
 }
 
+.thanks {
+  margin: 0;
+}
+
 .footnote {
+  width: 100%;
   border-top: 1px solid #E7E7E7;
   padding-top: 24px;
   margin-top: 24px;

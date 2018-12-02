@@ -34,12 +34,13 @@ export class PasswordService {
     return token;
   }
 
-  async validateResetPassToken(token: string): Promise<boolean> {
+  async validateResetPassToken(token: string): Promise<boolean | User> {
     let isValidToken: boolean;
+    let user: User = null;
 
     try {
       const { _id } = jwt.decode(token) as Partial<User>;
-      const user    = await this.userService.get(_id);
+      user = await this.userService.get(_id);
       const secret  = this.createResetPassSecret(user);
 
       jwt.verify(token, secret);
@@ -50,7 +51,7 @@ export class PasswordService {
 
     if (!isValidToken) return false;
 
-    return true;
+    return user;
   }
 
   private createResetPassAddr(baseAddr: string, user: User): string {

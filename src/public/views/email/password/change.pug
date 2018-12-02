@@ -1,7 +1,8 @@
-extends /email/layout/default
+extends /email/layout/full
 
 block content
-  form(class="form-block", method="post" action="#{ resetPassLink }")
+  form(class="form-block" method="post" action="/reset-password")
+    input(type="hidden" name="token" value=token)
     div(class="form-group")
       label(for="password")
         | Enter new password

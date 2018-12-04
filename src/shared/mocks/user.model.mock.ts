@@ -55,13 +55,14 @@ export class UserModelMock {
     return usersObject[0];
   }
 
-  findOneAndUpdate(conditions: any = {}, update: Partial<User>, options: any = { lean: true }): User {
+  findOneAndUpdate(conditions: any = {}, update: any, options: any = { lean: true }): User {
     if (conditions._id === 'null') return null;
 
     const userToUpdate = users[0];
+    const newData = update.$set || update;
 
-    const updatedUser = Object.keys(update).reduce((user, propertyToUpdate) => {
-      user[propertyToUpdate] = update[propertyToUpdate];
+    const updatedUser = Object.keys(newData).reduce((user, propertyToUpdate) => {
+      user[propertyToUpdate] = newData[propertyToUpdate];
       return user;
     }, userToUpdate);
 

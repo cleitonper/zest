@@ -3,9 +3,9 @@ import { JwtService, JwtModule } from '@nestjs/jwt';
 import { UnauthorizedException } from '@nestjs/common';
 import { getModelToken }         from '@nestjs/mongoose';
 
+import { UserModelMock } from '../../shared/mocks';
 import { UserModule }    from '../user/user.module';
 import { UserService }   from '../user/user.service';
-import { UserModelMock } from '../user/user.model.mock';
 import { AuthService }   from './auth.service';
 
 describe('Service: Auth', () => {

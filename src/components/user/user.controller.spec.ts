@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getModelToken }       from '@nestjs/mongoose';
 
-import { UserModelMock } from './user.model.mock';
+import { UserModelMock } from '../../shared/mocks';
 import { FindUserDTO, User }   from './types';
 
 import { UserController } from './user.controller';

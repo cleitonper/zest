@@ -32,8 +32,10 @@ export class UserService {
     return await this.user.findOne({ email }, fields, options);
   }
 
-  async update(id: string, update: Partial<User>, options = { lean: true, new: true }) {
-    const updatedUser = await this.user.findOneAndUpdate({ _id: id }, update, options);
+  async update(id: string, update: Partial<User>, options = { lean: true, new: true, runValidators: true }) {
+    const conditions = { _id: id };
+    const newData = { $set: update };
+    const updatedUser = await this.user.findOneAndUpdate(conditions, newData, options);
     if (!updatedUser) throw new NotFoundException(null, 'User not found');
     return updatedUser;
   }

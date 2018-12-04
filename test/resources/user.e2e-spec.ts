@@ -4,9 +4,9 @@ import { getModelToken }    from '@nestjs/mongoose';
 
 import { Request, Response }  from '../util/request';
 
-import { AppModule }     from '../../src/app.module';
-import { UserModelMock } from '../../src/components/user/user.model.mock';
+import { AppModule }       from '../../src/app.module';
 import { UserCredentials } from '../../src/components/auth/types';
+import { UserModelMock }   from '../../src/shared/mocks';
 
 describe('Controller: User (e2e)', () => {
   let app: INestApplication;

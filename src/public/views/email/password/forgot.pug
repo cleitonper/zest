@@ -1,4 +1,4 @@
-extends /email/layout/default
+extends /email/layout/full
 
 block content
   p
@@ -11,7 +11,7 @@ block content
     |
     strong This password reset can only be used once and is valid for #{ resetPassTTL }.
 
-  a(class="call-to-action" href="#{ changePassLink }")
+  a(class="call-to-action" href=resetPassAddr)
     | Click here to reset your password.
 
   p
@@ -24,4 +24,4 @@ block footnote
     | If you’re having trouble with the button above,
     | copy and paste the URL below into your web browser.
 
-  p(class="break-word") #{ changePassLink }
+  p(class="break-word") #{ resetPassAddr }

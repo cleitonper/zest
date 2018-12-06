@@ -2,6 +2,8 @@
 
 A NestJS API
 
+[![Build Status](https://travis-ci.org/cleitonper/zest.svg?branch=master)](https://travis-ci.org/cleitonper/zest)
+
 ## Environment
 
 Rename the `.env.example` file to `.env` and set all avaliable fields.

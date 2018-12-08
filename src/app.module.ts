@@ -1,3 +1,5 @@
+import { resolve } from 'path';
+
 import { Module }       from '@nestjs/common';
 import { ConfigModule } from 'nestjs-config';
 
@@ -11,7 +13,9 @@ import { PasswordModule } from './components/password/password.module';
 
 @Module({
   imports: [
-    ConfigModule.load(),
+    ConfigModule.load(
+      resolve(__dirname, 'config/**/*.ts'),
+    ),
     MailerModule,
     DatabaseModule,
     UserModule,

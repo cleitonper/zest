@@ -3,6 +3,8 @@
 A NestJS API
 
 [![Build Status](https://travis-ci.org/cleitonper/zest.svg?branch=master)](https://travis-ci.org/cleitonper/zest)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=cleitonper_zest&metric=alert_status)](https://sonarcloud.io/dashboard?id=cleitonper_zest)
+
 
 ## Environment
 

@@ -3,10 +3,15 @@ node_js:
   - lts/*
 services:
   - mongodb
+addons:
+  sonarcloud:
+    organization: cleitonper-github
 script:
   - yarn lint:check
   - yarn test
+  - yarn test:cov
   - yarn test:e2e
+  - sonar-scanner
 cache:
   yarn: true
   directories:

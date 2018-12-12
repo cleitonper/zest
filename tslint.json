@@ -1,7 +1,8 @@
 {
     "defaultSeverity": "error",
     "extends": [
-        "tslint:recommended"
+        "tslint:recommended",
+        "tslint-sonarts"
     ],
     "jsRules": {
         "no-unused-expression": true
@@ -14,6 +15,7 @@
         "ordered-imports": [ false ],
         "import-spacing": [ false ],
         "max-line-length": [ true, 150 ],
+        "no-duplicate-string": [true, 5],
         "member-ordering": [ false ],
         "curly": false,
         "interface-name": [  false ],
@@ -23,11 +25,18 @@
         "arrow-parens": false,
         "object-literal-sort-keys": false,
         "no-unused-expression": false,
-        "max-classes-per-file": [ false ],
-        "variable-name": [ false ],
-        "one-line": [ false ],
-        "one-variable-per-declaration": [ false ],
+        "max-classes-per-file": false,
+        "variable-name": false,
+        "one-line": false,
+        "one-variable-per-declaration": false,
+        "prefer-immediate-return": false,
         "prefer-const": [ true, { "destructuring": "all"  } ]
     },
-    "rulesDirectory": []
+    "linterOptions": {
+        "exclude": [
+            "src/**/*.spec.ts",
+            "src/**/*.mock.ts",
+            "test/**/*.ts"
+        ]
+    }
 }

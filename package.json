@@ -11,7 +11,7 @@
     "prestart:prod": "rimraf dist && tsc",
     "start:prod": "node dist/main.js",
     "start:hmr": "node dist/server",
-    "lint:check": "tslint -c tslint.json {src,test}/**/*.ts",
+    "lint:check": "tslint -c tslint.json --project tsconfig.json",
     "lint:write": "npm run lint:check -- --fix",
     "test": "jest -b",
     "test:staged": "lint-staged",
@@ -48,6 +48,7 @@
     "rxjs": "^6.2.2",
     "superagent": "^4.0.0-beta.5",
     "superagent-defaults": "^0.1.14",
+    "tslint-sonarts": "^1.8.0",
     "typescript": "^3.0.1",
     "yarn": "^1.12.1"
   },
@@ -86,7 +87,7 @@
     "coverageDirectory": "../coverage/",
     "collectCoverageFrom": [
       "<rootDir>/**/*.ts"
-  ],
+    ],
     "coveragePathIgnorePatterns": [
       "<rootDir>/shared",
       "<rootDir>/config",

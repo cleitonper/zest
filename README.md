@@ -59,3 +59,16 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+# Features
+
+![Demo](https://user-images.githubusercontent.com/13934790/49979605-e4fe7b80-ff36-11e8-8fb8-288406859215.gif)
+
+* Environment variables inside `.env` file
+* Continous Integration with Travis CI
+* Continous Quality with SonarCloud
+* API Documentation with Swagger
+* Automated Tests with Jest
+* Run automated tests before commits for staged files
+* MongoDB Integration with mongoose
+* JWT Based Authentication

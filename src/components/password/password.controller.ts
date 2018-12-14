@@ -4,11 +4,15 @@ import {
   Response, Headers, Query, Body,
 } from '@nestjs/common';
 
+import { ApiUseTags, ApiExcludeEndpoint } from '@nestjs/swagger';
+
 import { PasswordService } from './password.service';
 import { UserService }     from '../user/user.service';
 import { User }            from '../user/types';
+import { Identifier } from './types';
 
 @Controller()
+@ApiUseTags('Password')
 export class PasswordController {
   constructor(
     private readonly passwordService: PasswordService,
@@ -18,15 +22,18 @@ export class PasswordController {
   @HttpCode(200)
   @Post('forgot-password')
   async forgot(
-    @Headers('host') host: string,
-    @Body('email') email: string,
+    @Headers() headers,
+    @Body() body: Identifier,
   ) {
+    const { host }  = headers;
+    const { email } = body;
     const resetPassBaseAddr = `http://${host}/reset-password`;
     return await this.passwordService.forgot(email, resetPassBaseAddr);
   }
 
   @Get('reset-password')
   @Render('email/password/change')
+  @ApiExcludeEndpoint()
   async reset(
     @Query('token') token: string,
     @Response() response,
@@ -37,6 +44,7 @@ export class PasswordController {
   }
 
   @Post('reset-password')
+  @ApiExcludeEndpoint()
   async change(
     @Response() response,
     @Body() body,
@@ -55,6 +63,7 @@ export class PasswordController {
 
   @Get('reset-password/error')
   @Render('email/message/index')
+  @ApiExcludeEndpoint()
   error() {
     const title = 'Invalid credentials';
     const message = '' +
@@ -66,6 +75,7 @@ export class PasswordController {
 
   @Get('reset-password/success')
   @Render('email/message/index')
+  @ApiExcludeEndpoint()
   success() {
     const title = 'Password updated';
     const message = 'Your password was successful updated.';

@@ -1,25 +1,29 @@
 import {
-Controller,
-Get, Post, Put, Delete,
-Query, Param, Body, HttpCode,
-UseGuards,
+  Controller,
+  Get, Post, Put, Delete,
+  Query, Param, Body, HttpCode,
+  UseGuards,
 } from '@nestjs/common';
+
+import { ApiBearerAuth, ApiUseTags } from '@nestjs/swagger';
 
 import { Projection, Pagination, Filter } from '../../shared/decorators';
 import { JwtGuard, PermissionGuard }      from '../../shared/guards';
 
-import { FindUserDTO, User, CreateUserDTO } from './types';
+import { FindUserDTO, User } from './types';
 import { UserService } from './user.service';
 
 const USER_FILTERS = ['_id', 'name', 'email'];
 
 @UseGuards(JwtGuard, PermissionGuard)
 @Controller('users')
+@ApiBearerAuth()
+@ApiUseTags('User')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
-  async create(@Body() user: CreateUserDTO): Promise<User> {
+  async create(@Body() user: User): Promise<User> {
     return await this.userService.create(user);
   }
 
@@ -44,7 +48,7 @@ export class UserController {
   @Put(':id')
   async update(
     @Param('id') id: string,
-    @Body() update: Partial<CreateUserDTO>,
+    @Body() update: Partial<User>,
     ) {
     return this.userService.update(id, update);
   }

@@ -46,6 +46,17 @@
     rxjs "^5.5.6"
     typescript "^2.8.1"
 
+"@nestjs/common@^5.0.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-5.5.0.tgz#6427d440f96e23c38945620fd74cb6ec61da8224"
+  integrity sha512-Ifh1D4ypsJYs/3YBIocU+X5yuAZSVKuCsz8kaKB4ZUO5WwJjh4/x6hlr4A+9XUMe8fPLtYXVohJoRUU5HbwyIA==
+  dependencies:
+    axios "0.18.0"
+    cli-color "1.2.0"
+    deprecate "1.0.0"
+    multer "1.3.0"
+    uuid "3.3.2"
+
 "@nestjs/common@^5.1.0", "@nestjs/common@^5.3.11":
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-5.4.1.tgz#7caef567c0aa116086c4785b48ce6df43194bc9d"
@@ -55,6 +66,22 @@
     cli-color "1.2.0"
     deprecate "1.0.0"
     multer "1.3.0"
+    uuid "3.3.2"
+
+"@nestjs/core@^5.0.0":
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-5.5.0.tgz#4f80bcfda1b964a6e1702c32f0afcbcc4a1706f7"
+  integrity sha512-XPUjSJyex6KMdTUKK1oeD7ea9mNLcwlSEbcKV7OWaNHIVq/XJaFpbzjbmd+/U/ZZaO1IWhpisfLW9gr/O8eb4w==
+  dependencies:
+    "@nuxtjs/opencollective" "0.1.0"
+    body-parser "1.18.3"
+    cors "2.8.4"
+    express "4.16.3"
+    fast-safe-stringify "1.2.0"
+    iterare "0.0.8"
+    object-hash "1.3.0"
+    optional "0.1.4"
+    path-to-regexp "2.2.1"
     uuid "3.3.2"
 
 "@nestjs/core@^5.1.0", "@nestjs/core@^5.3.11":
@@ -90,6 +117,18 @@
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@nestjs/passport/-/passport-5.1.0.tgz#abbf028290800092724238f5a2c5b68ae035ce86"
   integrity sha512-I9UMWM9yfm/7w50f/glnELfKJUiBa1N2b57nqyOxKCbSApaRQtyvw70uMutbCmaOCkw6bjwBayG3uNrOodFMqw==
+
+"@nestjs/swagger@^2.5.1":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-2.5.1.tgz#f05e96ee82fa2b6b9c5a508b55bb0162fa025068"
+  integrity sha512-pixAD2+mOLOyvvFjkyRaPxNcFVygOBhCt1Jn2FO2QAYjuuxjaNckytMpJD+iMvLDCpb5eAbd7qjhJ6LiGhRLug==
+  dependencies:
+    lodash "^4.17.4"
+    path-to-regexp "^2.2.1"
+    swagger-ui-express "^3.0.8"
+  optionalDependencies:
+    "@nestjs/common" "^5.0.0"
+    "@nestjs/core" "^5.0.0"
 
 "@nestjs/testing@^5.1.0":
   version "5.4.1"
@@ -2571,6 +2610,24 @@ fastify-static@^0.14.0:
     readable-stream "^3.0.0"
     send "^0.16.0"
 
+fastify-static@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/fastify-static/-/fastify-static-1.0.0.tgz#3dfa804936d6098d85c77490303e9bafd154274a"
+  integrity sha512-qavr2wsKCch/ZL4qa4twwkxO/g0e5UvwfZNbXo9xPNDMxrzgPkXa/UTHwfH58yWdLmKlEpFSj/5lo5ZFUQfJiw==
+  dependencies:
+    fastify-plugin "^1.2.0"
+    readable-stream "^3.0.2"
+    send "^0.16.0"
+
+fastify-swagger@^0.16.1:
+  version "0.16.1"
+  resolved "https://registry.yarnpkg.com/fastify-swagger/-/fastify-swagger-0.16.1.tgz#cd0e5f8150ea0aeadadd11feae904b4df7dd816f"
+  integrity sha512-4Tb+TPwBUiWYHS5/CZv2XVH0LZHcAJP7PXRhTim7TCCLEErgE1ojJv50jLD/3QRYpCfG6uRazTBOyz480gM2OQ==
+  dependencies:
+    fastify-plugin "^1.2.0"
+    fastify-static "^1.0.0"
+    js-yaml "^3.12.0"
+
 fastify@^1.13.0:
   version "1.13.1"
   resolved "https://registry.yarnpkg.com/fastify/-/fastify-1.13.1.tgz#9e16a8d05133a405d9ba88e96e9cb246f70f9f99"
@@ -4053,7 +4110,7 @@ js-tokens@^3.0.2:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
   integrity sha1-mGbfOVECEw449/mWvOtlRDIJwls=
 
-js-yaml@^3.7.0, js-yaml@^3.9.0:
+js-yaml@^3.12.0, js-yaml@^3.7.0, js-yaml@^3.9.0:
   version "3.12.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.12.0.tgz#eaed656ec8344f10f527c6bfa1b6e2244de167d1"
   integrity sha512-PIt2cnwmPfL4hKNwqeiuz4bKfnzHTBv6HyVgjahA6mPLwPDzjDWrplJBMjHUFxku/N3FlmrbyPclad+I+4mJ3A==
@@ -5615,7 +5672,7 @@ path-to-regexp@2.2.1:
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-2.2.1.tgz#90b617025a16381a879bc82a38d4e8bdeb2bcf45"
   integrity sha512-gu9bD6Ta5bwGrrU8muHzVOBFFREpp2iRkVfhBJahwJ6p6Xw20SjT0MxLnwkjOibQmGSYhiUnf2FLe7k+jcFmGQ==
 
-path-to-regexp@^2.0.0:
+path-to-regexp@^2.0.0, path-to-regexp@^2.2.1:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-2.4.0.tgz#35ce7f333d5616f1c1e1bfe266c3aba2e5b2e704"
   integrity sha512-G6zHoVqC6GGTQkZwF4lkuEyMbVOjoBKAEybQUypI1WTkqinCOrq2x6U2+phkJ1XsEMTy4LjtwPI7HW+NVrRR2w==
@@ -6113,7 +6170,7 @@ readable-stream@1.1.x:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-readable-stream@^3.0.0, readable-stream@^3.0.3, readable-stream@^3.0.6:
+readable-stream@^3.0.0, readable-stream@^3.0.2, readable-stream@^3.0.3, readable-stream@^3.0.6:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.0.6.tgz#351302e4c68b5abd6a2ed55376a7f9a25be3057a"
   integrity sha512-9E1oLoOWfhSXHGv6QlwXJim7uNzd9EVlWK+21tCU9Ju/kR0/p2AZYPz4qSchgO8PlLIH4FpZYfzwS+rEksZjIg==
@@ -6983,6 +7040,11 @@ supports-color@^5.2.0, supports-color@^5.3.0, supports-color@^5.5.0:
   integrity sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==
   dependencies:
     has-flag "^3.0.0"
+
+swagger-ui-express@^3.0.8:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/swagger-ui-express/-/swagger-ui-express-3.0.10.tgz#c72b32107a57a47913f3b46003e8fd62a7378ea2"
+  integrity sha1-xysyEHpXpHkT87RgA+j9Yqc3jqI=
 
 symbol-observable@1.0.1:
   version "1.0.1"

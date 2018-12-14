@@ -4,9 +4,9 @@ import { Injectable }           from '@nestjs/common';
 import { PassportStrategy }     from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 
-import { AuthService }     from '../../components/auth/auth.service';
-import { UserCredentials } from '../../components/auth/types';
-import { User } from 'components/user/types';
+import { AuthService } from '../../components/auth/auth.service';
+import { Credentials } from '../../components/auth/types';
+import { User }        from 'components/user/types';
 
 dotenv.config();
 
@@ -19,7 +19,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(credentials: UserCredentials): Promise<User> {
+  async validate(credentials: Credentials): Promise<User> {
     return await this.authService.validate(credentials);
   }
 }

@@ -49,10 +49,10 @@ describe('Controller: Password', () => {
   });
 
   it('forgot: should call the service', async () => {
-    const host = 'zest.com';
-    const email = 'user@email.com';
+    const headers = { host: 'zest.com' };
+    const body =    { email: 'user@email.com' };
     spyOn(service, 'forgot').and.returnValue(true);
-    await controller.forgot(host, email);
+    await controller.forgot(headers, body);
     expect(service.forgot).toBeCalled();
   });
 

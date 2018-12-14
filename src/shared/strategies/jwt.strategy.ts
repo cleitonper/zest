@@ -6,7 +6,7 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 
 import { AuthService } from '../../components/auth/auth.service';
 import { Credentials } from '../../components/auth/types';
-import { User }        from 'components/user/types';
+import { User }        from '../../components/user/types';
 
 dotenv.config();
 

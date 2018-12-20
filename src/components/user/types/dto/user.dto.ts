@@ -21,7 +21,6 @@ export class User {
   @ApiModelProperty()
   readonly password: string;
 
-  @ValidateNested()
   @IsOptional()
   @ApiModelProperty({ type: Object })
   readonly permissions: UserPermissions;

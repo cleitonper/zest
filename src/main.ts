@@ -5,6 +5,8 @@ import { ValidationPipe }                 from '@nestjs/common';
 import { viewEngineConfig, staticAssetsConfig } from './config/asstes';
 import { validationConfig }                     from './config/validation';
 
+import * as helmet from 'fastify-helmet';
+
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -22,6 +24,7 @@ async function bootstrap() {
   app.useStaticAssets(staticAssetsConfig);
   app.setViewEngine(viewEngineConfig);
   app.useGlobalPipes(new ValidationPipe(validationConfig));
+  app.register(helmet);
   app.enableCors();
 
   const { NODE_ENV, PORT } = process.env;

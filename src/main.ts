@@ -23,8 +23,10 @@ async function bootstrap() {
   app.setViewEngine(viewEngineConfig);
   app.useGlobalPipes(new ValidationPipe(validationConfig));
 
-  const port = process.env.PORT || 3000;
+  const { NODE_ENV, PORT } = process.env;
 
-  await app.listen(port);
+  NODE_ENV === 'production'
+    ? await app.listen(PORT)
+    : await app.listen(PORT, '0.0.0.0');
 }
 bootstrap();

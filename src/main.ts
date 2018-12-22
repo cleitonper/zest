@@ -22,6 +22,7 @@ async function bootstrap() {
   app.useStaticAssets(staticAssetsConfig);
   app.setViewEngine(viewEngineConfig);
   app.useGlobalPipes(new ValidationPipe(validationConfig));
+  app.enableCors();
 
   const { NODE_ENV, PORT } = process.env;
 

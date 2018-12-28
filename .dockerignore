@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+.scannerwork/
+logs/
+
+.dockerignore
+docker-compose*.yml
+Dockerfile*
+yarn-error.log
+package-lock.json
+.env

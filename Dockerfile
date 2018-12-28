@@ -12,6 +12,7 @@ RUN apk add --update git
 # Install PM2
 # Install project dependencies
 RUN npm config set scripts-prepend-node-path true &&\
+    yarn global add pm2 &&\
     yarn
 
 # Set 8000 as container port

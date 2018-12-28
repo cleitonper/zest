@@ -6,8 +6,9 @@
   "license": "MIT",
   "scripts": {
     "build": "rimraf dist && tsc",
+    "log": "pm2 log api --lines 100",
     "prestart": "npm run build",
-    "start": "node dist/main.js",
+    "start": "pm2 start pm2.yml && npm run log",
     "start:dev": "nodemon",
     "start:debug": "nodemon --config nodemon-debug.json",
     "start:hmr": "node dist/server",

@@ -1,5 +1,5 @@
 # Set node:alpine image
-FROM node:alpine
+FROM node:10-alpine
 
 # Copy from host to container workdir
 WORKDIR /app

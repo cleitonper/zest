@@ -1,5 +1,5 @@
 # Step 1 - Build: set node:alpine image
-FROM node:alpine as build
+FROM node:10-alpine as build
 
 # Copy from host to node container workdir
 WORKDIR /app

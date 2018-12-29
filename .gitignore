@@ -4,4 +4,5 @@ coverage/
 .scannerwork/
 logs/
 
+package-lock.json
 .env

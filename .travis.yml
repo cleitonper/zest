@@ -7,13 +7,14 @@ addons:
   sonarcloud:
     organization: cleitonper-github
 cache:
+  yarn: true
   directories:
     - node_modules
 script:
-  - npm run lint:check
-  - npm run test
-  - npm run test:cov
-  - npm run test:e2e
+  - yarn lint:check
+  - yarn test
+  - yarn test:cov
+  - yarn test:e2e
   - sonar-scanner
 deploy:
   skip_cleanup: true

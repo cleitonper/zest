@@ -8,12 +8,14 @@ COPY . .
 # Install git
 RUN apk add --update git
 
-# Prepend node path for each npm call
+# Prepend node path for each npm or yarn call
+RUN npm config set scripts-prepend-node-path true
+
 # Install PM2
+RUN yarn global add pm2@latest
+
 # Install project dependencies
-RUN npm config set scripts-prepend-node-path true &&\
-    npm install --global pm2@latest &&\
-    npm install
+RUN yarn
 
 # Set 8000 as container port
 EXPOSE 8000

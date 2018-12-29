@@ -4,6 +4,7 @@ coverage/
 .scannerwork/
 logs/
 
+package-lock.json
 .dockerignore
 docker-compose*.yml
 Dockerfile*

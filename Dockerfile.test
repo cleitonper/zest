@@ -8,10 +8,10 @@ COPY . .
 # Install git
 RUN apk add --update git
 
-# Prepend node path for each npm or yarn call
+# Prepend node path for each npm call
 # Install project dependencies
 RUN npm config set scripts-prepend-node-path true &&\
-    yarn
+    npm install
 
 # ------------------------------------------------------
 

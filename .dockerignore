@@ -4,4 +4,7 @@ coverage/
 .scannerwork/
 logs/
 
+.dockerignore
+docker-compose*.yml
+Dockerfile*
 .env

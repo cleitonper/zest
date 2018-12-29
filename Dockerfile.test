@@ -1,0 +1,23 @@
+# Step 1 - Build: set node:alpine image
+FROM node:10-alpine as build
+
+# Copy from host to node container workdir
+WORKDIR /app
+COPY . .
+
+# Install git
+RUN apk add --update git
+
+# Prepend node path for each npm call
+# Install project dependencies
+RUN npm config set scripts-prepend-node-path true &&\
+    npm install
+
+# ------------------------------------------------------
+
+# Step 2 - Run: sonar-scanner image
+FROM emeraldsquad/sonar-scanner
+
+# Copy from build to sonar-scanner workdir
+WORKDIR /app
+COPY --from=build /app .

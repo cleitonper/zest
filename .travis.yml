@@ -3,6 +3,7 @@ node_js:
   - 10
 services:
   - mongodb
+  - docker
 addons:
   sonarcloud:
     organization: cleitonper-github
@@ -17,10 +18,9 @@ script:
   - yarn test:e2e
   - sonar-scanner
 deploy:
-  skip_cleanup: true
-  provider: heroku
-  app:
-    master: zeest
-    development: zeest-preview
-  api_key:
-    secure: Tb06fyv8xJp6+qks4j9C6SFnwFy5lT82wLNIXVPCp20bqr8EWTPhCxbzkFBgOcBvJYvHjH5afmTb0SCGL1JUblx2FeOLTkuKVSaGNaRTvp4Tm67WcpTp0TYikObBUe387fCWvHxU/LeqSwpH1Zc9Fhm90IfPCm3vaOehqEn7vnu/KKx2nIzL1gTxghywud5HdBTcX9dCShibUZ7hBUBHc5ijf9TX/JYCN2xU+ADOWPGKoOqOzpRbd9NmCVs0m20sgMmmEAbL73I+4nsoCaUKFDFSkDjslJBsXf+kTsVnG33KhfhgDtGodS58HN6D+nQWmjfjXKA0oT9J44EXJSuK/8LOvaDnrzIKMWsFh0BW0rj1/Fkb8OyQ0qAHbY3s3KwypKFE7mAJBC/uG9joEk0MJTOLh6ojuvrD1mKrBIu1SKyqoYXlk9E9AD3hvoF27qg5mYJt0YBkYnF8bJZBGV8RF7ZRemHYcZC5mGZRbbj9Y2zQ2RZw2nVmGd88Mxpe/2uz0KnlVmGwRQmVVLQkDkvO2IGUw/mo4YKX5tkh63WLFIqFxQfNxFsHrGreJkCeXmlsjc522LDVqOw1cJnIRbmie6Pn6RdZ8VDA7vpO/zg6zTcLagWU/UarM/r3P0rJDcK5M+Gg2xy/nCi9FbEmmK0TC+Lu8bFQO44sPP48miOcndI=
+  provider: script
+  script: sh ./scripts/deploy.sh
+  on:
+    branch:
+      - master
+      - development

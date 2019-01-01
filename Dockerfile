@@ -15,7 +15,8 @@ RUN npm config set scripts-prepend-node-path true
 RUN yarn global add pm2@latest
 
 # Install project dependencies
-RUN npm install
+# See yarn issue #6312
+RUN yarn install --network-concurrency 1
 
 # Set 8000 as container port
 EXPOSE 8000

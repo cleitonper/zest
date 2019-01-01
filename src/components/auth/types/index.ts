@@ -1,7 +1,6 @@
-import { Token }           from './token';
-import { UserCredentials } from './user-credentials';
-
+import { Token }       from './token';
+import { Credentials } from './dto/credentials';
 export {
   Token,
-  UserCredentials,
+  Credentials,
 };

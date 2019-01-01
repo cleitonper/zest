@@ -14,7 +14,7 @@ import { PasswordModule } from './components/password/password.module';
 @Module({
   imports: [
     ConfigModule.load(
-      resolve(__dirname, 'config/**/*.ts'),
+      resolve(__dirname, 'config/**/!(*.d).{ts,js}'),
     ),
     MailerModule,
     DatabaseModule,

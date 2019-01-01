@@ -1,13 +1,26 @@
 language: node_js
 node_js:
-  - lts/*
+  - 10
 services:
   - mongodb
-script:
-  - yarn lint:check
-  - yarn test
-  - yarn test:e2e
+  - docker
+addons:
+  sonarcloud:
+    organization: cleitonper-github
 cache:
   yarn: true
   directories:
     - node_modules
+script:
+  - yarn lint:check
+  - yarn test
+  - yarn test:cov
+  - yarn test:e2e
+  - sonar-scanner
+deploy:
+  provider: script
+  script: sh ./scripts/deploy.sh
+  on:
+    branch:
+      - master
+      - development

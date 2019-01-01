@@ -1,13 +1,11 @@
 import { FindUserDTO }     from './dto/find-user.dto';
-import { CreateUserDTO }   from './dto/create-user.dto';
-import { User }            from './user';
+import { User }            from './dto/user.dto';
 import { UserMongoose }    from './user.mongoose';
 import { UserPermissions } from './user-permissions';
 
 export {
-  User,
   UserMongoose,
   UserPermissions,
-  CreateUserDTO,
+  User,
   FindUserDTO,
 };

@@ -1,0 +1,36 @@
+version: "3"
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - /data/mongodb:/data/db
+    ports:
+      - "27017:27017"
+  test:
+    container_name: test
+    tty: true
+    env_file: .env
+    environment:
+      NODE_ENV: tests
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    depends_on:
+      - mongo
+  development:
+    container_name: development
+    tty: true
+    env_file: .env
+    environment:
+      NODE_ENV: development
+      MONGODB_URI: MONGODB_URI=mongodb://mongo/zest
+    volumes:
+      - .:/app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo

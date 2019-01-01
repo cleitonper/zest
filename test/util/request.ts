@@ -8,17 +8,17 @@ import {
   SuperTest,
 } from 'supertest';
 
-import { UserCredentials } from '../../src/components/auth/types';
+import { Credentials } from '../../src/components/auth/types';
 
 const DEFAUL_CREDENTIALS = { email: 'lorem@email.com', password: 'secret' };
 
 class Request {
   private publicRequest;
   private privateRequest;
-  private credentials: UserCredentials;
+  private credentials: Credentials;
   private token: string;
 
-  constructor(app: INestApplication, credentials: UserCredentials = DEFAUL_CREDENTIALS) {
+  constructor(app: INestApplication, credentials: Credentials = DEFAUL_CREDENTIALS) {
     this.publicRequest = supertest(app.getHttpServer());
     this.privateRequest = defaults(supertest(app.getHttpServer()));
     this.credentials = credentials;
